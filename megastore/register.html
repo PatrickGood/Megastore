@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/Dtd/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+    <link rel="icon" href="images/tab.png" width="300%">
+    <title>MegaStore </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional: Include the jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!--Bootstrap validation helpers-->
+    <script type="text/javascript" src="js/bootstrapValidator.js"></script>
+    <script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrapValidator.css"/>
+    <link rel="stylesheet" href="css/bootstrapValidator.min.css"/>
+
+    <!--include state picker via Bootstrap form helpers-->
+    <script type="text/JavaScript" src="js/bootstrap-formhelpers.js"></script>
+    <script type="text/JavaScript" src="js/bootstrap-formhelpers.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-formhelpers.css"/>
+    <link rel="stylesheet" href="css/bootstrap-formhelpers.min.css"/>
+  
+    <!-- Style for BACK TO TOP ARROW -->
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="carousel.css">
+
+
+    <script> 
+
+    $(document).ready(function() {
+
+
+    $('#defaultForm')
+        .bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                username: {
+                    message: 'The username is not valid',
+                    validators: {
+                        notEmpty: {
+                            message: 'The username is required and can\'t be empty'
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 30,
+                            message: 'The username must be more than 6 and less than 30 characters long'
+                        },
+                       
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: 'The username can only consist of alphabetical, number, dot and underscore'
+                        }
+                    }
+                },
+                email: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The email address is required and can\'t be empty'
+                        },
+                        emailAddress: {
+                            message: 'The input is not a valid email address'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The password is required and can\'t be empty'
+                        }
+                    }
+                },
+                fname: {
+                    validators: {
+                        notEmpty: {
+                            message: 'First Name is requried and can\'t be empty'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z]*$/,
+                            message: 'Digits and special characters are invalid'
+                        }
+                    }
+                },
+                lname: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Last Name is requried and can\'t be empty'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z]*$/,
+                            message: 'Digits and special characters are invalid'
+                        }
+                    }
+                },
+                u_street: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Address is required and can\'t be empty'
+                        }
+                    }
+                },
+                u_city: {
+                    validators: {
+                        notEmpty: {
+                            message: 'City is requried and can\'t be empty'
+                        },
+                        regexp: {
+                            regexp: /^([a-zA-Z]+\s)*[a-zA-Z]+$/,
+                            message: 'Digits and special characters are invalid'
+                        }
+                    }
+                },
+                u_zip: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Zip Code is required and can\'t be empty'
+                        },
+                        stringLength: {
+                            min: 5,
+                            max: 5,
+                            message: 'Zip code must be 5 digits'
+                        },
+                        regexp: {
+                            regexp: /^\d*[0-9](|.\d*[0-9]|,\d*[0-9])?$/,
+                            message: 'Zip code must be a numeric value'
+                        }
+                    }
+                },
+            }
+
+        });
+
+        $('.bfh-select-fix').bfhstates({country:'US',state:'KY'});
+       $('#secretkey').css("display","none");
+
+        // Add onclick handler to checkbox w/id checkme
+       $('#employee_chk').click(function(){
+
+        // If checked
+        if ($('#employee_chk').is(":checked"))
+        {
+            //hide the hidden div
+            $('#secretkey').show("fast");
+            
+        }
+        else
+        {
+            //otherwise, show it
+            $('#secretkey').hide("fast");
+        }
+      });
+
+});
+
+    </script>
+
+
+  </head>
+
+  <!-- ==================================================== -->
+
+<body>
+
+    <div class="header">
+    <div class="container-fluid_logo">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="text-center">
+      <img src="images/our_logo_2.png" class="logo" padding-left:"2000px"/>
+    </div>
+    </div>
+    <!--<div class="col-md-6">
+      <h2 class="pull-right">Welcome to MegaStore the Computer Store</h2>
+    </div>-->
+      </div>
+  </div>
+</div>
+
+    <div class="navbar-wrapper">
+     <div class="container">        
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="carousel.php">HOME</a></li>
+                
+                
+                <ul class="nav navbar-nav navbar-right_login_register">
+            <li id="login"><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+            </div>
+        </ul>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</div>
+<div id="Register">
+    	<div class="container_sign_up">
+    		<form id="defaultForm" method="post" action="php/registerUser.php" class="form-horizontal by-form">
+    		<h3>Basic Information</h3>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Username</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="username" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Email address</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="email" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Password</label>
+                    <div class="col-lg-5">
+                        <input type="password" class="form-control" name="password" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">First Name</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="fname" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Last Name</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="lname" />
+                    </div>
+                </div>
+
+                <h3>Address</h3>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Address</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="u_street" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">City</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="u_city" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                	<label class="col-lg-3 control-label">State</label>
+                	<div class="col-lg-5">
+                		<select class="form-control bfh-select-fix bfh-states" data-country="US" data-state="KY" name="u_state"></select>
+                	</div>
+                </div>
+
+                <div class="form-group">
+                	<label class="col-lg-3 control-label">Zip Code</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="u_zip" />
+                    </div>
+                </div>
+
+                
+                <h3>Employee</h3>
+
+                    <div class="checkbox">
+                        <label class="col-lg-9 col-lg-offset-3"><input type="checkbox" id="employee_chk" name="u_type">Are you an Employee? (Different Keys for Manager/Staff given Management)</label>
+                    </div>
+
+                    <div id="secretkey">
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Employee Passcode</label>
+                        <div class="col-lg-5">
+                            <input type="text" class="form-control" name="secretkey" />
+                        </div>
+                    </div>
+
+                    </div>
+
+                    <br /> 
+
+	                <div class="form-group">                                     
+	                    <div class="col-lg-9 col-lg-offset-3">
+                            <button type="submit" class="btn btn-lg btn-primary"> <i class="glyphicon glyphicon-ok-sign"></i> Sign Up </button>
+	                        
+	                    </div>
+	               	</div>
+
+                    <div class="form-group">
+	                    <div class="col-lg-9 col-lg-offset-3">
+	                        <a href="carousel.html">Cancel Registration</a>
+	                    </div>
+	               	</div>
+			</form>
+	</div>
+</div>
+<!-- Wrap the rest of the page in another container to center all the content. -->
+      <!-- FOOTER -->
+      <hr>
+      <footer>
+        <p align="middle">&copy; MegaStore, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+      <hr>
+
+    
+
+    <!-- Style for BACK TO TOP ARROW -->
+    <script type="text/javascript">$(document).ready(function(){
+      $('body').append('<div id="toTop" class="btn btn-info_top"><span class="glyphicon glyphicon-chevron-up"></span> Back to Top</div>');
+      $(window).scroll(function () {
+      if ($(this).scrollTop() != 0) {
+        $('#toTop').fadeIn();
+      } else {
+        $('#toTop').fadeOut();
+      }
+    }); 
+    $('#toTop').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+    });
+});
+
+</script>
+
+
+</body>
+</html>
